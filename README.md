@@ -1,1 +1,1 @@
-# Template
+# Template Apollo Server
