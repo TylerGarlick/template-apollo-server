@@ -6,12 +6,12 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.js",
   "scripts": {
-    "postinstall": "typesync || :",
-    "start": "yarn ts-node -r dotenv/config ./src",
-    "start:dev": "yarn ts-node-dev -r dotenv/config ./src",
-    "test": "yarn jest",
-    "prebuild": "rm -rf dist",
-    "build": "yarn tsc"
+    "postinstall": "npx typesync || :",
+    "start": "npx ts-node -r dotenv/config ./src",
+    "start:dev": "npx ts-node-dev -r dotenv/config ./src",
+    "test": "npx jest",
+    "prebuild": "npx del dist",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.14",
     "@types/prettier": "^2.1.6",
+    "del-cli": "^3.0.1",
     "jest": "^26.6.3",
     "np": "^7.2.0",
     "prettier": "^2.2.1",
