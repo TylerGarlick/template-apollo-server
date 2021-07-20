@@ -1,8 +1,12 @@
 import server from './server'
 
-const { PORT } = process.env
+const { PORT } = process.env || 4000
+
 
 server.listen(PORT)
-      .then((server) => {
-        console.log(`Server started: ${server.url}`)
-      })
+  .then(({ url }) => {
+    console.log(`Server started: ${url}`)
+    console.log(
+      `Try your health check at: ${url}.well-known/apollo/server-health`,
+    )
+  })

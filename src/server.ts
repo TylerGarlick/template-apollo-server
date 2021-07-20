@@ -15,6 +15,15 @@ const server = new ApolloServer({
   introspection: true,
   playground: true,
   debug: true,
+  tracing: true,
+  async onHealthCheck() {
+    // Replace the `true` in this conditional with more specific checks!
+    if (true) {
+      return;
+    } else {
+      throw new Error('...');
+    }
+  },
   schema,
 })
 

@@ -1,4 +1,63 @@
+type User {
+  name: String
+  email: String
+  password: String
+}
+
+type Me {
+  name: String
+  email: String
+}
+
 type Query {
-  ping: String,
-  version: String
+  me: Me
+  ping: Boolean
+}
+
+input RegisterInput {
+  name: String
+  email: String
+  password: String
+}
+
+type RegisterResults {
+  user: User
+  token: String
+}
+
+input LoginInput {
+  email: String
+  password: String
+}
+
+type LoginResults {
+  email: String
+  token: String
+}
+
+input ChangePasswordInput {
+  email: String
+  oldPassword: String
+  newPassword: String
+}
+
+type ChangePasswordResults {
+  isSuccessful: Boolean
+  token: String
+}
+
+input ForgotPasswordResetInput {
+  email: String
+  token: String
+  password: String
+}
+
+
+
+type Mutation {
+  register(input: RegisterInput): RegisterResults
+  login(input: LoginInput): LoginResults
+  changePassword(input: ChangePasswordInput): ChangePasswordResults
+  forgotPassword(email: String): Boolean
+  forgotPasswordReset(input:ForgotPasswordResetInput): Boolean
 }
